@@ -4,7 +4,9 @@ class NewTransaction extends StatelessWidget {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
-  NewTransaction({Key? key}) : super(key: key);
+  final void Function(String txTitle, double txAmount) addToUI;
+
+  NewTransaction({Key? key, required this.addToUI}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +25,7 @@ class NewTransaction extends StatelessWidget {
               controller: amountController,
             ),
             TextButton(
-              onPressed: () {
-                print(titleController.text);
-                print(amountController.text);
-              },
+              onPressed: () => addToUI(titleController.text, double.parse(amountController.text)),
               child: const Text('Add Transaction', style: TextStyle(color: Colors.purple)),
             ),
           ],
