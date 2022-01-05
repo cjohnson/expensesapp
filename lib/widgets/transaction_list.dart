@@ -13,11 +13,11 @@ class TransactionList extends StatelessWidget {
     return Column(children: transactions.map((tx) {
       return Card(child: Row(children: [
         Container(
-          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           decoration: BoxDecoration(
               border: Border.all(color: Colors.purple, width: 2)
           ),
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Text(
             '\$${tx.amount}',
             style: const TextStyle(
